@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mystery of History</title>
+    <meta
+      name="description"
+      content="Website kelompok 7."
+    />
+    <meta name="author" content="Kelompok 7" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <h2>History Website</h2>
+      <div class="nav-links">
+        <a href="#" class="active">Home</a>
+        <a href="#">Peristiwa</a>
+        <a href="#">Galeri</a>
+        <a href="#" class="right">Artikel</a>
+      </div>
+    </nav>
+    <header class="hero">
+      <h1>The Mystery Of The History</h1>
+      <p><b>"Imagination is more important than knowledge."</b></p>
+      <p><b>- Albert Einstein</b></p>
+    </header>
+    <main class="main-content" id="main-content">
+      <aside class="side">
+        <h5>Thorfinn Karlsefni</h5>
+        <img
+          class="fakeimg"
+          src="assets/1.jpeg"
+          alt="Thorfinn Karlsefni"
+        />
+        <h5>Lief Erickson</h5>
+        <img
+          class="fakeimg"
+          src="assets/2.jpg"
+          alt="Lief Erickson"
+        />
+        <h5>Canute The Great</h5>
+        <img
+          class="fakeimg"
+          src="assets/3.jpeg"
+          alt="Canute The Great"
+        />
+        <h5>Albert Einstein</h5>
+        <img
+          class="fakeimg"
+          src="assets/4.jpg"
+          alt="Albert Einstein"
+        />
+      </aside>
+      <article class="main">
+        <div class="menutama">
+          <img
+            class="judulgambar"
+            src="assets/judul.jpg"
+            alt="Gambar Sejarah"
+          />
+          <h3>Simo Hayha</h3>
+          <p>Simo Hayha (pengucapan bahasa Finlandia: [ˈsimo ˈhæy̯hæ]) (17 Desember 1905 – 1 April 2002), dijuluki "White Death" ("Maut/kematian Putih") (bahasa Rusia: Белая смерть, Belaya smert' , bahasa Finlandia: Valkoinen kuolema, bahasa Swedia: Vita döden) oleh tentara Soviet, adalah seorang tentara Finlandia. Ia adalah seorang petani dan pemburu yang kemudian menjadi tentara finlandia dan dia telah melewati masa wajib militer 1 tahunnya.</p>
+          <p>Ketika Uni Soviet menyerang Finlandia tahun 1939 dalam Perang Musim Dingin, ia memutuskan untuk membantu Finlandia sebagai tentara sukarelawan. Menggunakan senapan SAKO M/28-30 (varian Mosin-Nagant buatan Finlandia yang terkenal berkualitas tinggi)</p>
+          <p>Dalam suhu −20 °C dan −40 °C di Sungai Kollaa, sungai yang melintasi sebagian besar Finlandia dan sebagian Rusia, dengan memakai baju dan topeng kamuflase putih, ia telah dikomfirmasi membunuh 505 tentara Soviet, dan 542 jika jumlah kematian yang tidak pasti diikutsertakan.[3] Selain menggunakan SAKO M/28-30, Häyhä juga membunuh dua ratusan orang dengan pistol mitraliur Suomi KP/-31, meningkatkan jumlah orang yang dibunuhnya menjadi 705.[3] Seluruh pembunuhan dilakukan Häyhä dalam waktu kurang dari 100 hari, dan uniknya tanpa menggunakan teropong bidik atau hanya menggunakan pisir senapan. Menurutnya, penggunaan teropong bidik mengharuskan penembak mengangkat kepala sedikit tinggi, sehingga meningkatkan risiko diketahui lawan. Lagipula, Häyhä juga belum pernah berlatih dengan senapan berteropong. Ia juga kerap menumpuk salju di depan posisinya untuk bantalan senapan dan sarana kamuflase, serta kerap memasukkan salju ke dalam mulutnya guna mencegah posisinya terbuka akibat uap nafas di udara yang sangat dingin.</p>
+        </div>
+      </article>
+    </main>
+    <div class="scroll-top" id="scrollTop">
+      <i class="fas fa-arrow-up"></i>
+    </div>
+    <footer class="footer">
+      <p>Website ini dibuat untuk mengungkap sejarah dunia secara singkat dan menarik <br />Dibuat Oleh Kelompok 7</p>
+      <h4>© 2025 Dibuat Oleh <a href="">Kelompok 7</a></h4>
+    </footer>
+    <script>
+      // JavaScript untuk animasi scroll dan efek lainnya
+      document.addEventListener('DOMContentLoaded', function() {
+        // Animasi elemen saat scroll
+        const observerOptions = {
+          root: null,
+          rootMargin: '0px',
+          threshold: 0.1
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+            }
+          });
+        }, observerOptions);
+        
+        const sideElement = document.querySelector('.side');
+        const mainElement = document.querySelector('.main');
+        
+        if (sideElement) observer.observe(sideElement);
+        if (mainElement) observer.observe(mainElement);
+        
+        // Tombol scroll to top
+        const scrollButton = document.getElementById('scrollTop');
+        
+        window.addEventListener('scroll', () => {
+          if (window.pageYOffset > 300) {
+            scrollButton.classList.add('visible');
+          } else {
+            scrollButton.classList.remove('visible');
+          }
+        });
+        
+        scrollButton.addEventListener('click', () => {
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+        });
+        
+        // Efek hover pada gambar
+        const images = document.querySelectorAll('.fakeimg, .judulgambar');
+        images.forEach(img => {
+          img.addEventListener('mouseenter', () => {
+            img.style.transform = 'translateY(-5px) scale(1.02)';
+          });
+          
+          img.addEventListener('mouseleave', () => {
+            img.style.transform = '';
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
